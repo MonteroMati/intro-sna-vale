@@ -155,51 +155,9 @@ plot(red_juego, mark.groups = list(
 
 # Algoritmos de diseño (quizás no, too much)
 
-### 4. Díadas y tríadas
-# - Densidad
-graph.density(red_juego) # d = 0.135.
+### 4. Díadas y tríadas (seleccionar?)
+# - Díadas: reciprocidad y Homofilia
 
-# - Reciprocidad
-reciprocity(red_juego) # la reciprocidad es igual a 0.5; ¿cómo interpretamos?
-
-# Estrategia de interpretación (1)
-# Contextual: revisar literatura especializada de redes en el campo de estudio en particular
-
-# Estrategia de interpretación (2)
-# Comparar con el valor que se obtiene en una red aleatoria de densidad similar.
-# En grafos aleatorios, la probabilidad de que dos díadas estén enlazadas se deberá al azar.
-# La probabilidad de observar un vínculo dado es independiente de observar un vínculo entre cualquier otra díada.
-# Es semejante a comparar con un modelo nulo en regresión.
-
-# La función erdos.renyi.game genera una red del mismo tamaño y densidad, pero con enlaces emitidos al azar
-random_graph = erdos.renyi.game(n = vcount(red_juego), # Número de nodos
-                                p.or.m = graph.density(red_juego), # Probabilidad de generar un enlace entre dos nodos
-                                directed = TRUE) # La red es dirigida
-
-# Comprobación visual de ambos grafos
-plot(red_juego,  
-     vertex.size = 2, 
-     vertex.label = NA, 
-     edge.curved = .1, 
-     vertex.color = "tomato", 
-     edge.arrow.size = .1, 
-     edge.width = .5, 
-     edge.color = "grey60")
-
-plot(random_graph,  
-     vertex.size = 2, 
-     vertex.label = NA, 
-     edge.curved = .1, 
-     vertex.color = "tomato", 
-     edge.arrow.size = .1, 
-     edge.width = .5, 
-     edge.color = "grey60")
-
-# - ¿Cuál es la reciprocidad del grafo aleatorio?
-reciprocity(random_graph)
-
-# - Homofilia
-
-# - Tríadas: transitividad
-
-# - Tríadas: censo de tríadas
+# - Tríadas: Cierre triádico
+# - Tríadas: Transitividad
+# - Triadas: Balance Estructural*
