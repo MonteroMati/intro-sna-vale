@@ -155,7 +155,7 @@ plot(red_juego, mark.groups = list(
 
 # Algoritmos de diseño (quizás no, too much)
 
-### 4. Díadas y tríadas
+### 4. Díadas y tríadas ----
 # - Densidad
 graph.density(red_juego) # d = 0.135.
 
@@ -199,7 +199,10 @@ plot(random_graph,
 reciprocity(random_graph)
 
 # - Homofilia
+assortativity_nominal(red_juego, types = as.numeric(V(red_juego)$female) + 1)
 
 # - Tríadas: transitividad
+transitivity(red_juego)
 
 # - Tríadas: censo de tríadas
+triad.census(red_juego)
