@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Introducción al análisis de redes sociales</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Alejandro Plaza 👨‍🏫 y Matías Montero 🚴" />
+    <meta name="date" content="2022-01-28" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Introducción al análisis de redes sociales
+## Ciclo de talleres: “aprendiendo metodología por Valentina”
+### Alejandro Plaza 👨‍🏫 y Matías Montero 🚴
+### 2022-01-28
+
+---
+
+
+
+
+
+---
+class: center, middle
+
+# Sobre el taller
+
+---
+
+# Sobre el taller
+
+El estudio de las **redes sociales** consiste en las relaciones entre las unidades de una población e investiga cómo la **estructura de los vínculos** afectan en resultados a nivel individual y colectivo.
+
+--
+
+Este taller introduce al **&lt;span style="color: blue;"&gt;análisis de redes sociales&lt;/span&gt;** que refieren a los métodos por los cuales las propiedades de las redes se describen, cuantifican y analizan.
+
+
+--
+
+⚠️ **&lt;span style="color: red;"&gt;Advertencia&lt;/span&gt;**: no es un curso sobre redes sociales digitales (e.g., Twitter, Facebook). ¡Aunque pueden ser una fuente de datos para el análisis de redes!
+
+---
+
+# ¡Las redes están en nuestra experiencia cotidiana!&lt;sup&gt;1&lt;/sup&gt;
+
+- “¡Oh, **mundo chico**!” (small-world experiment y los seis grados de separación: Milgram, 1967).
+
+- “Si usted tuviera una excelente idea, piense en 3 personas con quién la implementaría y 3 personas que no les gustaría la idea” (grupos informales en instituciones formales o el **organigrama informal**: Molina, 1995).
+
+- “Ya, pero no se lo cuentes a nadie” (el _cahuín_ como redes que expresan normas).
+
+- “El enemigo de mi enemigo es mi amigo” (formación de vínculos basado en preferencias y teoría del balance: Festinger 1957; Heider 1958).
+
+- “Los negocios y la familia son aparte” (formación de vínculos basado en las oportunidades: Borgatti, et al., 2013).
+
+.footnote[
+[1] Breve homenaje a Prof. Vicente Espinoza.]
+
+---
+
+
+# ¿Qué es el análisis de redes sociales?
+
+- Es una **metodología** (y **teoría**&lt;sup&gt;1&lt;/sup&gt;) que permite el análisis de fenómenos relacionales.
+
+- **Idea central**: la posición de un actor en una red determina sus oportunidades y limitaciones que encontrará. Identificar su posición en la estructura de la red es esencial para predecir los resultados de un actor, tales como el rendimiento, el comportamiento o sus creencias (Borgatti, et al., 2013).
+
+.footnote[
+[1] Escuchar capítulo de podcast en Knitting Networks (min 29:30): https://open.spotify.com/episode/4BXZDGasOdcuIKiub9OBOe?si=KXM34YSzTSu-POJJZ5_OYg]
+
+---
+
+
+# Tipos de relaciones sociales (Borgatti, et al., 2013)
+
+**Estados relacionales**: vínculos persistentes y continuos en el tiempo.
+
+--
+
+**Eventos relacionales**: vínculos recurrentes.
+
+
+
+---
+class: center, middle, inverse
+
+&lt;img src="G:/My Drive/Teaching/Taller SNA Valentina/intro-sna-vale/presentation matias/fig1-tipo-rel.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Investigación clásica en ciencias sociales
+
+Las unidades sociales son casos independientes entre sí.
+
+--
+
+Se construyen variables como atributos de estos casos.
+
+--
+
+Uso de procedimientos estadísticos consistentes en cruzar casos por variables (e.g., regresión lineal).
+
+--
+
+**Paradoja**: las relaciones sociales o interacciones entre sujetos es el objeto de estudio de la sociología (Emirbayer, 1997).
+
+--
+
+Distinción entre datos de atributos y datos relacionales (Scott, 2000).
+
+---
+
+# La promesa del análisis de redes
+
+En el marco de una estructura de red, los enlaces, vínculos o relaciones sociales son una realidad empírica con potencial explicativo y relevante para la teoría social.
+
+--
+
+El análisis de redes permite:
+
+- Incorporar los atributos de los nodos (e.g., etnia, género, escala de participación).
+
+- Analizar la red como un todo (e.g., vacíos estructurales, brokering, cliques).
+
+- El nodo puede ser cualquier entidad (e.g., un objeto, individuo, país).
+
+
+- Contribuye con una perspectiva propia para la investigación social: enfoque de redes para las preguntas de investigación.
+
+
+- Estudiar los mecanismos o procesos sociales subyacentes en que individuos se relacionan en diferentes niveles (e.g., individuo - sociedad, agencia - estructura).
+
+---
+
+# Preguntas de investigación con perspectiva de redes
+
+¿En qué grado las redes de amistad y la participación en protestas coevolucionan en el tiempo? (Asún, et al., 2016-2018).
+
+--
+
+¿En qué medida las redes de asesoramiento de profesores responden a patrones de reciprocidad y formación de cliques/camarillas? (Ortega, et al., 2020).
+
+--
+
+¿Existen algún efecto de pares en el consumo de alcohol y tabaco? (Steglich, et al., 2010)
+
+---
+
+---
+class: center, middle
+
+# Elementos constitutivos de una red
+### Nodos, enlaces, díadas, y red
+
+---
+
+**Actores**, **nodos** o **vértices**. Nodos poseen atributos cualitativos (e.g., género, etnia) o cuantitativos (e.g., edad, escala de participación). Pueden ser individuos, escuelas, objetos.
+
+--
+
+&lt;img src="G:/My Drive/Teaching/Taller SNA Valentina/intro-sna-vale/presentation matias/fig2-node.png" width="30%" style="display: block; margin: auto;" /&gt;
+
+--
+
+**Enlaces**, **vínculos**, **conexiones**, **arcos** o **lazos**:
+
+- _Dirigidos_ vs _No dirigidos_: el enlace tiene o no dirección (e.g., dirigido: María enseña a Juan; no dirigido: María asistió a una marcha con Juan).
+
+--
+
+&lt;img src="G:/My Drive/Teaching/Taller SNA Valentina/intro-sna-vale/presentation matias/fig3-dir.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+--
+
+
+- _Ponderados_ vs _No ponderados_ o _Binario_: el enlace tiene valor o fuerza (e.g., Pedro conoce a Juan hace 10 años) o binario / no ponderado (e.g. Pedro es amigo de Juan).
+
+--
+
+&lt;img src="G:/My Drive/Teaching/Taller SNA Valentina/intro-sna-vale/presentation matias/fig4-weight.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+**Díada**. Par de nodos.
+
+--
+
+&lt;img src="G:/My Drive/Teaching/Taller SNA Valentina/intro-sna-vale/presentation matias/fig5-dyad.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+--
+
+**Red social**. Estructura que emerge de los vínculos entre los nodos conformando un conjunto. También, conjunto de lazos diádicos de la misma naturaleza entre una serie de nodos.
+
+--
+
+&lt;img src="G:/My Drive/Teaching/Taller SNA Valentina/intro-sna-vale/presentation matias/fig6-net.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: center, middle
+
+# Estructura de datos de redes
+### Matriz de adyacencia, matriz de incidencia y lista de enlaces
+
+---
+
+# Matriz de adyacencia
+
+
+
+
+```r
+first_matrix = matrix(
+  c(0, 1, 0, 0, 
+    0, 0, 0, 0, 
+    0, 0, 0, 1, 
+    0, 1, 0, 0), 
+  nrow = 4, ncol = 4, byrow = TRUE)
+
+first_net = graph.adjacency(first_matrix)
+plot(first_net)
+```
+
+&lt;img src="intro-sna_files/figure-html/unnamed-chunk-8-1.png" width="40%" /&gt;
+
+---
+
+
+```r
+net_undirect = graph.adjacency(first_matrix, mode = 'undirected') 
+plot(net_undirect)
+```
+
+&lt;img src="intro-sna_files/figure-html/unnamed-chunk-9-1.png" width="50%" /&gt;
+
+---
+
+# Matriz de adyacencia
+
+
+```r
+first_matrix
+```
+
+```
+##      [,1] [,2] [,3] [,4]
+## [1,]    0    1    0    0
+## [2,]    0    0    0    0
+## [3,]    0    0    0    1
+## [4,]    0    1    0    0
+```
+
+Para **grafos no dirigidos**, la matriz es simétrica (la parte por encima de la diagonal es idéntica a la parte por debajo de la diagonal).
+Esto no es así para **grafos dirigidos** (matriz asimétrica). Es una forma de almacenar datos que computacionalmente es ineficiente. 
+
+---
+
+# Lista de enlaces (edge list)
+
+
+```r
+ego = c(1,3,3,2,4)
+alter = c(2,4,1,3,2)
+elist = data.frame(ego, alter)
+elist
+```
+
+```
+##   ego alter
+## 1   1     2
+## 2   3     4
+## 3   3     1
+## 4   2     3
+## 5   4     2
+```
+
+---
+
+# Matriz de incidencia (actor-by-event) o red modo 2
+
+
+```r
+e1 = c(1,1,1,0,0,0)
+e2 = c(0,1,1,1,0,0)
+e3 = c(0,0,1,1,1,0)
+e4 = c(0,0,0,0,1,1)
+protest_df = data.frame(e1,e2,e3,e4) # Eventos de protesta
+row.names(protest_df) = c("Alejandro", "Matías", "Valentina", # Nombre de nodos
+                           "Daniela", "Agnes", "Hoshi")
+
+protest_events_net = graph.incidence(protest_df)
+protest_df
+```
+
+```
+##           e1 e2 e3 e4
+## Alejandro  1  0  0  0
+## Matías     1  1  0  0
+## Valentina  1  1  1  0
+## Daniela    0  1  1  0
+## Agnes      0  0  1  1
+## Hoshi      0  0  0  1
+```
+
+---
+
+
+```r
+# Graficar red modo 2
+plt.x = c(rep(2,6), rep(4,4))
+plt.y = c(7:2, 6:3)
+lay = as.matrix(cbind(plt.x, plt.y))
+
+shapes = c("circle", "square")
+colors = c("blue", "red")
+plot(protest_events_net, vertex.color = colors[V(protest_events_net)$type+1],
+      vertex.shape = shapes[V(protest_events_net)$type+1],
+      vertex.size = 10, vertex.label.degree = -pi/2,
+      vertex.label.dist = 1.2, vertex.label.cex = 0.9,
+      layout = lay)
+```
+
+&lt;img src="intro-sna_files/figure-html/unnamed-chunk-13-1.png" width="50%" /&gt;
+
+---
+
+class: center, middle
+
+# Visualización de redes
+
+---
+
+# Densidad
+
+- La densidad de un gráfo indica cuántos vínculos entre nodos existen en comparación con cuántos vínculos entre nodos son posibles.
+
+- Refleja el **nivel de conexión** de una red en comparación con lo que podría estarlo.
+
+- Al comparar dos redes con el mismo número de nodos y el mismo tipo de relaciones, puede decirnos en qué se diferencian las redes.
+
+- **Interpretación sustantiva**: se concibe como un indicador de **cohesión social**.
+
+- **Cálculo**: Total de enlaces / Total de enlaces existentes.
+
+- Adopta valores entre 0 y 1.
+
+
+---
+
+class: center, middle
+
+&lt;img src="G:/My Drive/Teaching/Taller SNA Valentina/intro-sna-vale/presentation matias/fig7-density.jpg" width="100%" style="display: block; margin: auto;" /&gt;
+
+Van Woudenberg, et al. (2019)
+
+---
+
+# Reciprocidad
+
+- ¿Qué favorece la conexión entre dos nodos? Si un nodo `\(i\)` está vinculado con un nodo `\(j\)`, entonces es probable que `\(j\)` esté conectado con `\(i\)`. De ser así, los vínculos son **recíprocos**.
+
+- Medida en que los vínculos entre dos nodos son mutuos.
+
+- N° de díadas conectadas por un vínculo mutuo / N° total de enlaces dirigidos.
+
+- Adopta valores entre 0 y 1.
+
+&lt;img src="G:/My Drive/Teaching/Taller SNA Valentina/intro-sna-vale/presentation matias/fig8-rec.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Reciprocidad
+
+**Interpretación sustantiva**
+
+- Normas de reciprocidad (antropología cultural).
+
+- Es indispensable para generar confianza social y efectuar intercambios, pero puede redundar en intercambios no novedosos (Burt, 1992).
+
+- Característico en contextos de aprendizaje (Tanimoto, et al., 2008).
+
+
+---
+
+# Homofilia
+
+- Si `\(i\)` y `\(j\)` son iguales en algún atributo socialmente relevante, entonces es posible que tengan un vínculo.
+
+
+- La tendencia de los individuos a vincularse con pares que poseen atributos similares es conocido como homofilia o assortative mixing.
+
+- Características socialmente relevantes: estatus social (Lazarsferd &amp; Merton, 1958), género (amistad en escuelas: Shrum, et al., 1988).
+
+- La homofilia suele ser contextual al grupo estudiado (e.g., género tiende hacia heterofilia en relaciones románticas).
+
+- Adopta valores de -1 a 1.
+
+- Interpretación sustantiva: se asocia a comportamientos de selección social (Robins, 2015) y homogeneidad en una red.
+    
+---
+
+# ¿Cuál red presenta mayores patrones de homofilia?
+
+&lt;img src="G:/My Drive/Teaching/Taller SNA Valentina/intro-sna-vale/presentation matias/fig9-homo.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+Golub y Jackson (2011)
+
+---
+
+# Cierre triádico y transitividad
+
+- Las tríadas constan de tres nodos y, por tanto, tienen más arreglos posibles.
+
+- Un nodo `\(i\)` y un nodo `\(j\)` puede que tengan una relación dado que comparten una relación con un tercer nodo `\(k\)`.
+
+- El **cierre triádico** es la propensión de los nodos `\(i\)` y `\(j\)` de estar conectados dado que ambos comparten una conexión con `\(k\)`. Así, forman un triángulo con 3 enlaces por **transitividad**.
+
+- Una triada cerrada consiste en tres nodos están conectados. Cierran el camino de longitud 2 entre los tres nodos.
+
+- **Interpretación sustantiva**: se considera un indicador de integración social y de formación de cliques/cuadrillas.
+
+&lt;img src="G:/My Drive/Teaching/Taller SNA Valentina/intro-sna-vale/presentation matias/fig10-tri.png" width="20%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Censo de triadas
+
+- En un **grafo no dirigido** hay 8 posibles tipos de tríadas (la díada puede estar presente o ausente y hay tres díadas). De esas 8 tríadas, 4 son isomórficas, es decir, se pueden formar 4 tríadas únicas.
+
+- En un **grafo dirigido** hay 16 tríadas únicas. Estas 16 tríadas únicas dan lugar al _MAN labelling_ (mutual, asymmetrix, null), así como al **censo de tríadas**.
+
+&lt;img src="G:/My Drive/Teaching/Taller SNA Valentina/intro-sna-vale/presentation matias/fig11-man.png" width="30%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Censo de triadas
+
+- El **censo de tríadas** calcula cuántas tríadas hay de cada tipo de las 16 posibles en una red.
+
+- Ejemplo: ver triada 2 - 012. Indica 0 enlaces mutuos, 1 asimétricos y 2 nulos.
+
+&lt;img src="G:/My Drive/Teaching/Taller SNA Valentina/intro-sna-vale/presentation matias/fig12-tri2.png" width="55%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Comentarios finales
+
+- Los indicadores vistos para describir las características estructurales de una red (e.g., densidad, centralidad o la homofilia) _solo describen una red observada_ de un inifinito número de redes alternativas.
+
+- Este conjunto de redes alternativas puede tener características estructurales similares o diferentes a la red observada.
+
+- La promesa del análisis de redes sociales es precisamente comprender los mecanismos, fuerzas o procesos sociales que propician la formación de lazos y estructuras.
+
+- En consecuencia, la inferencia, modelamiento y control estadístico es esencial para hablar sobre procesos que influyen en la formación de la estructura de la red (¡lo cual es abordado por desarrollos recientes en la ciencia de redes!)
+
+---
+
+class: center, middle
+
+# ¡Gracias!
+
+Alejandro Plaza (agplaza@uc.cl) y Matías Montero (matias.montero@ug.uchile.cl)
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

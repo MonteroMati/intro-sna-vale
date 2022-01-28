@@ -8,8 +8,8 @@
 
 ### 1. Set up ----
 getwd()
-setwd("G:/My Drive/Teaching/Taller SNA Valentina")
-pacman::p_load(igraph, statnet, viridis)
+setwd("G:/My Drive/Teaching/Taller SNA Valentina/intro-sna-vale")
+pacman::p_load(igraph, viridis)
 
 ### 2. Estructura de datos de redes ----
 # 2.1 Matriz de adyacencia
@@ -100,7 +100,7 @@ load("curso_enlaces.Rda")
 red_curso = graph_from_data_frame(curso_enlaces, vertices = curso_vertices, directed = TRUE)
 
 # 3.2. Seleccionar la red de juego
-red_juego = delete.edges(red_curso, E(red_curso)[question != "play"])
+red_juego = delete_edges(red_curso, E(red_curso)[question != "play"])
 red_juego
 plot(red_juego, edge.arrow.size = 0.3)
 
@@ -153,7 +153,35 @@ plot(red_juego, mark.groups = list(
   vertex.shape = ifelse(V(red_juego)$female, "circle", "square"), vertex.label = NA, 
   edge.arrow.size = 0.2, edge.color = "black")
 
-# Algoritmos de diseño (quizás no, too much)
+## Force-directed graph design: algoritmos de diseño
+# Posicionan los nodos de un grafo en un espacio bidimensional o tridimensional de forma que
+# los enlaces tengan más o menos la misma longitud y exista el menor número posible de enlaces cruzados
+# Asigna fuerzas de atracción entre el conjunto de enlaces y el conjunto de nodos,
+# en función de sus posiciones relativas.
+
+# Fruchterman-Reingold
+plot(red_juego, layout = layout_with_fr, vertex.label = NA, 
+     vertex.size = 8,
+     edge.arrow.size = 0.3,
+     vertex.color=ifelse(V(red_juego)$female, "red", "lightblue"))
+
+# Kamada-Kawai
+plot(red_juego, layout = layout_with_kk, vertex.label = NA,
+     vertex.size = 8,
+     edge.arrow.size = 0.3,
+     vertex.color=ifelse(V(red_juego)$female, "red", "lightblue"))
+
+# Multidimensional scaling
+plot(red_juego, layout = layout_with_mds, vertex.label = NA,
+     vertex.size = 8,
+     edge.arrow.size = 0.3,
+     vertex.color = ifelse(V(red_juego)$female, "red", "lightblue"))
+
+# Circle
+plot(red_juego, layout = layout_in_circle, vertex.label = NA,
+     vertex.size = 8,
+     edge.arrow.size = 0.3,
+     vertex.color = ifelse(V(red_juego)$female, "red", "lightblue"))
 
 ### 4. Díadas y tríadas ----
 # - Densidad
@@ -178,7 +206,7 @@ random_graph = erdos.renyi.game(n = vcount(red_juego), # Número de nodos
 
 # Comprobación visual de ambos grafos
 plot(red_juego,  
-     vertex.size = 2, 
+     vertex.size = 10, 
      vertex.label = NA, 
      edge.curved = .1, 
      vertex.color = "tomato", 
@@ -187,7 +215,7 @@ plot(red_juego,
      edge.color = "grey60")
 
 plot(random_graph,  
-     vertex.size = 2, 
+     vertex.size = 10, 
      vertex.label = NA, 
      edge.curved = .1, 
      vertex.color = "tomato", 
