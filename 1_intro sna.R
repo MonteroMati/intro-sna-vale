@@ -1,10 +1,12 @@
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-##                                                                            ~~
-##             Introducción al análisis de redes sociales                   ----
-##     Ciclo de talleres: “Aprendiendo metodología por Valentina”             ~~
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##                                                                                ~~
+##             Introducción al análisis de redes sociales                       ----
+##     Ciclo de talleres: “Aprendiendo metodología por Valentina”                 ~~
+## Alejandro Plaza (agplaza@uc.cl) y Matías Montero (matias.montero@ug.uchile.cl) ~~
+##                                                                                ~~
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ### 1. Set up ----
 getwd()
@@ -109,7 +111,7 @@ plot(red_juego, edge.arrow.size = 0.3)
 
 plot(red_juego,
      edge.color = "indianred4", # Color del enlace (usa hex codes o etiquetas de colores de R)
-     edge.arrow.size = 1, # Tamaño de la fecha
+     edge.arrow.size = 1, # Tamaño de la flecha
      vertex.color = V(red_juego)$female + 1) # Crea una secuencia de vértices para todos los vértices del grafo
                                              # y, con ello, distingue color a cada vértice según género.
 

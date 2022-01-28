@@ -306,6 +306,16 @@ plot(protest_events_net, vertex.color = colors[V(protest_events_net)$type+1],
 class: center, middle
 
 # Visualización de redes
+### Vamos al código (script) de R...
+
+---
+
+---
+
+class: center, middle
+
+# Díadas y tríadas
+### Indicadores de red
 
 ---
 
@@ -450,6 +460,6 @@ class: center, middle
 
 # ¡Gracias!
 
-Alejandro Plaza (agplaza@uc.cl) y Matías Montero (matias.montero@ug.uchile.cl)
+Alejandro Plaza (<agplaza@uc.cl>) y Matías Montero (<matias.montero@ug.uchile.cl>)
 
 Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
